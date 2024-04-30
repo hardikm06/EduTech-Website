@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container {
+            background-image: url('bgl.avif');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            
+            <h2 class="text-center">Login to EduTech</h2>
+            <form id="loginForm" onsubmit="return login()">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password"><br>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button><br>
+            </form>
+            <div class="text-center mt-3">
+                <button onclick="googleLogin()" class="btn btn-success">Login with Google</button><br><br>
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Perform simple validation
+            if (username === '' || password === '') {
+                alert('Please enter both username and password.');
+                return false;
+            }
+
+            // Perform authentication - This is just a basic example, in real application, you would check credentials against a backend/database
+            if (username === 'hm06@gmail.com' && password === '123654') {
+                
+                window.location.href = 'index.html'; // Redirect to the home page after successful login
+                return false; // Prevent form submission
+            } else {
+                alert('Invalid username or password. Please try again.');
+                return false;
+            }
+        }
+
+        function googleLogin() {
+            // Perform Google login logic here
+            alert('Google login clicked.');
+        }
+    </script>
+</body>
+</html>
